@@ -4,6 +4,11 @@ $BannedIPLog   = $wail2banInstall+"bannedIPLog.ini"
 $logFile         = $wail2banInstall+"wail2ban_log.log"
 
 $HTMLFile = $wail2banInstall+"public_html/index.html"
+
+if (!(Test-Path $HtmlPath)){
+mkdir $wail2banInstall"public_html"
+}
+
 function html ($a) { $a | out-file $HTMLFile -append }
 ""|out-file $HTMLFile; clear-content $HTMLFile
 
